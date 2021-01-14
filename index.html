@@ -18,13 +18,15 @@
       <h1>Zoom Image Generator</h1>
       <form class="ui form">
         <label for="fFirstname">First name:</label>
-        <input type="text" id="fFirstname" name="fFirstname" oninput="onFirstnameChange(this.value)" />
+        <input type="text" id="fFirstname" name="fFirstname" oninput="onFirstnameChange(this.value)" onload="onFirstnameChange(this.value)" />
         <label for="fLastname">Last name:</label>
-        <input type="text" id="fLastname" name="fLastname" oninput="onLastnameChange(this.value)" />
+        <input type="text" id="fLastname" name="fLastname" oninput="onLastnameChange(this.value)" onload="onLastnameChange(this.value)" />
       </form>
       <div id="theImage" style="background-image: url(./logo_only.png);height: 500px">
-        <span id="lFirstname"></span>
-        <span id="lLastname"></span>
+        <div id="superimposedText">
+          <span id="lFirstname"></span><br><br>
+          <span id="lLastname"></span>
+        </div>
       </div>
       <button class="ui button" onclick="downloadImage()">
         Download Zoom Background
@@ -55,7 +57,6 @@
     }
 
     window.onFirstnameChange = function (value) {
-      console.log(value);
       var lFirstname = document.getElementById("lFirstname");
       lFirstname.innerText = value;
     }

@@ -1,0 +1,12 @@
+div#superimposedText {
+  position: relative;
+  height: auto;
+  width: auto;
+  text-align: right;
+  right: 25px;
+  top: 25px;
+  font-size: 2em;
+  color: whitesmoke;
+  /* left: 25px; */
+  /* top: 200px; */
+}
