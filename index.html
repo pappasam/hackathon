@@ -24,10 +24,10 @@
         <label for="fLastname">Last name:</label>
         <input type="text" id="fLastname" name="fLastname" oninput="onLastnameChange(this.value)" onload="onLastnameChange(this.value)" />
       </form>
-      <div id="theImage" style="background-image: url(./logo_only.png);height: 500px">
+      <div id="theImage" style="background-image: url(./logo_only.png);height: 720px; width: 1280px;">
         <div id="superimposedText">
-          <span id="lFirstname"></span><br><br>
-          <span id="lLastname"></span>
+          <span id="lFirstname" class="fun"></span><br><br>
+          <span id="lLastname" class="fun2"></span>
         </div>
       </div>
       <button class="ui button" onclick="downloadImage()">
