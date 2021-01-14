@@ -18,12 +18,13 @@
       <h1>Zoom Image Generator</h1>
       <form class="ui form">
         <label for="fFirstname">First name:</label>
-        <input type="text" id="fFirstname" name="fFirstname" />
+        <input type="text" id="fFirstname" name="fFirstname" oninput="onFirstnameChange(this.value)" />
         <label for="fLastname">Last name:</label>
-        <input type="text" id="fLastname" name="fLastname" />
+        <input type="text" id="fLastname" name="fLastname" oninput="onLastnameChange(this.value)" />
       </form>
-      <div id="theImage">
-        <img src="logo_only.png" class="ui image" />
+      <div id="theImage" style="background-image: url(./logo_only.png);height: 500px">
+        <span id="lFirstname"></span>
+        <span id="lLastname"></span>
       </div>
       <button class="ui button" onclick="downloadImage()">
         Download Zoom Background
@@ -44,10 +45,24 @@
   <script type="text/javascript">
     window.downloadImage = function () {
       domtoimage
-        .toPng(document.getElementById('theImage'))
+        .toJpeg(document.getElementById('theImage'))
         .then(function (dataUrl) {
-          download(dataUrl, 'zoom-background.png')
+          var link = document.createElement('a');
+          link.download = 'my-image-name.jpeg';
+          link.href = dataUrl;
+          link.click();
         })
+    }
+
+    window.onFirstnameChange = function (value) {
+      console.log(value);
+      var lFirstname = document.getElementById("lFirstname");
+      lFirstname.innerText = value;
+    }
+
+    window.onLastnameChange = function (value) {
+      var lLastname = document.getElementById("lLastname");
+      lLastname.innerText = value;
     }
   </script>
 </html>
