@@ -37,22 +37,33 @@
       </div>
 
       <form class="ui form">
-        <label for="fFirstname">First name:</label>
-        <input
-          type="text"
-          id="fFirstname"
-          name="fFirstname"
-          oninput="onFirstnameChange(this.value)"
-          onload="onFirstnameChange(this.value)"
-        />
-        <label for="fLastname">Last name:</label>
-        <input
-          type="text"
-          id="fLastname"
-          name="fLastname"
-          oninput="onLastnameChange(this.value)"
-          onload="onLastnameChange(this.value)"
-        />
+        <div class="field">
+          <label>First Name</label>
+          <input
+            type="text"
+            id="fFirstname"
+            placeholder="First Name"
+            oninput="onFirstnameChange(this.value)"
+          />
+        </div>
+        <div class="field">
+          <label>Last name</label>
+          <input
+            type="text"
+            id="fLastname"
+            placeholder="Last Name"
+            oninput="onLastnameChange(this.value)"
+          />
+        </div>
+        <div class="field">
+          <label>Gender Pronouns (Optional)</label>
+          <input
+            type="text"
+            id="fGender"
+            placeholder="She/He/They/Zim/etc"
+            oninput="onGenderChange(this.value)"
+          />
+        </div>
       </form>
       <hr />
       <div
@@ -64,10 +75,14 @@
         "
       >
         <div id="superimposedText">
-          <span id="lFirstname" class="fun"></span>
+          <span id="lFirstname"></span>
           <br />
           <br />
-          <span id="lLastname" class="fun2"></span>
+          <span id="lLastname"></span>
+          <br />
+          <br />
+          <br />
+          <span id="lGender"></span>
         </div>
       </div>
       <hr />
@@ -112,5 +127,12 @@
       var lLastname = document.getElementById('lLastname')
       lLastname.innerText = value
     }
+
+    window.onGenderChange = function (value) {
+      var lGender = document.getElementById('lGender')
+      lGender.innerText = value
+    }
+
+    $('form').each(function() { this.reset() });
   </script>
 </html>

@@ -16,3 +16,7 @@ span#lFirstname {
 span#lLastname {
   font-size: 4rem;
 }
+
+span#lGender {
+  font-size: 3rem;
+}
