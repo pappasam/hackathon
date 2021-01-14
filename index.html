@@ -11,25 +11,66 @@
       integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style/custom.css" />
   </head>
   <body>
     <div class="ui container">
-      <h1>Zoom Image Generator</h1>
+      <h1>Kepler Zoom Background Generator</h1>
+      <p>
+        This tool has been created to enable all comets to generate a Kepler
+        approved virtual background to use in client Zoom sessions. Your name is
+        intended to be highly visible even when other participants are using a
+        grid like view of the zoom room. When using this background please
+        situate yourself in such a way to minimize overlap with the name, which
+        will always stay in a minimal one-third area of the top right corner of
+        your screen.
+      </p>
+
+      <div class="ui blue message">
+        Note: it does not matter if you use the "Mirror" option within Zoom. The
+        text will always display correctly to other participants.
+      </div>
+
       <form class="ui form">
         <label for="fFirstname">First name:</label>
-        <input type="text" id="fFirstname" name="fFirstname" oninput="onFirstnameChange(this.value)" onload="onFirstnameChange(this.value)" />
+        <input
+          type="text"
+          id="fFirstname"
+          name="fFirstname"
+          oninput="onFirstnameChange(this.value)"
+          onload="onFirstnameChange(this.value)"
+        />
         <label for="fLastname">Last name:</label>
-        <input type="text" id="fLastname" name="fLastname" oninput="onLastnameChange(this.value)" onload="onLastnameChange(this.value)" />
+        <input
+          type="text"
+          id="fLastname"
+          name="fLastname"
+          oninput="onLastnameChange(this.value)"
+          onload="onLastnameChange(this.value)"
+        />
       </form>
-      <div id="theImage" style="background-image: url(./logo_only.png);height: 720px; width: 1280px;">
+      <hr />
+      <div
+        id="theImage"
+        style="
+          background-image: url(./logo_only.png);
+          height: 720px;
+          width: 1280px;
+        "
+      >
         <div id="superimposedText">
-          <span id="lFirstname" class="fun"></span><br><br>
+          <span id="lFirstname" class="fun"></span>
+          <br />
+          <br />
           <span id="lLastname" class="fun2"></span>
         </div>
       </div>
+      <hr />
       <button class="ui button" onclick="downloadImage()">
         Download Zoom Background
       </button>
@@ -45,27 +86,31 @@
     integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
     crossorigin="anonymous"
   ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+    crossorigin="anonymous"
+  ></script>
   <script type="text/javascript">
     window.downloadImage = function () {
       domtoimage
         .toJpeg(document.getElementById('theImage'))
         .then(function (dataUrl) {
-          var link = document.createElement('a');
-          link.download = 'my-image-name.jpeg';
-          link.href = dataUrl;
-          link.click();
+          var link = document.createElement('a')
+          link.download = 'my-image-name.jpeg'
+          link.href = dataUrl
+          link.click()
         })
     }
 
     window.onFirstnameChange = function (value) {
-      var lFirstname = document.getElementById("lFirstname");
-      lFirstname.innerText = value;
+      var lFirstname = document.getElementById('lFirstname')
+      lFirstname.innerText = value
     }
 
     window.onLastnameChange = function (value) {
-      var lLastname = document.getElementById("lLastname");
-      lLastname.innerText = value;
+      var lLastname = document.getElementById('lLastname')
+      lLastname.innerText = value
     }
   </script>
 </html>
