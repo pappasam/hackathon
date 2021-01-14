@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Zoom Background Generator</title>
+    <meta name="description" content="Create Zoom backgrouns for Kepler" />
+    <meta name="author" content="Sam, Ricard, and David" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/custom.css" />
+  </head>
+  <body>
+    <div class="ui container">
+      <h1>Zoom Image Generator</h1>
+      <form class="ui form">
+        <label for="fFirstname">First name:</label>
+        <input type="text" id="fFirstname" name="fFirstname" />
+        <label for="fLastname">Last name:</label>
+        <input type="text" id="fLastname" name="fLastname" />
+      </form>
+      <div id="theImage">
+        <img src="logo_only.png" class="ui image" />
+      </div>
+      <button class="ui button" onclick="downloadImage()">
+        Download Zoom Background
+      </button>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    window.downloadImage = function () {
+      domtoimage
+        .toPng(document.getElementById('theImage'))
+        .then(function (dataUrl) {
+          download(dataUrl, 'zoom-background.png')
+        })
+    }
+  </script>
+</html>
